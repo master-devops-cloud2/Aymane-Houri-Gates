@@ -29,9 +29,9 @@ jobs:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
         run: |
           mvn sonar:sonar \
-            -Dsonar.projectKey=<YOUR_PROJECT_KEY> \
+            -Dsonar.projectKey=${{ secrets.SONAR_PROJECT_KEY }}  \
             -Dsonar.host.url=https://sonarcloud.io \
-            -Dsonar.organization=<YOUR_ORG> \
+            -Dsonar.organization=<${{ secrets.SONAR_ORGANIZATION }} \
             -Dsonar.login=${{ secrets.SONAR_TOKEN }}
 
       - name: Upload Quality Gate Status (Optional)
